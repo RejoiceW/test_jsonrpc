@@ -1,0 +1,27 @@
+# 测试数据（测试用例）通过yaml管理维护，结合pytest.parametrize完成数据驱动
+
+polygon_mumbai:
+  eth_chainId:
+    - title: '正确参数'
+      payload:
+          jsonrpc: "2.0"
+          method: "eth_chainId"
+          params: []
+          id: 1
+      expected:  # 预期结果
+          jsonrpc: "2.0"
+          id: 1
+          result: "0x13881"
+
+  eth_syncing:
+    - title: '正确参数'
+      payload:
+        jsonrpc: "2.0"
+        method: "eth_syncing"
+        params: []
+        id: 1
+      expected:
+        "jsonrpc": "2.0"
+        "id": 1
+        "result": false
+

@@ -1,0 +1,6 @@
+env:
+  host: 'http://polygon-mumbai.testnet.863863.xyz/v1/rpc/'
+  key: 'fb90c5a628b19148d4f01da617219548c978cb6e'
+
+request_headers:
+  headers: {"Content-Type": "application/json"}

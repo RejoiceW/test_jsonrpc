@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Jul 13 16:30:41 CST 2023","Thu Jul 13 16:30:41 CST 2023","575","testcases","test_jsonrpc","TestJsonrpc","","","正确参数",""
+"skipped","Thu Jul 13 16:30:42 CST 2023","Thu Jul 13 16:30:42 CST 2023","0","testcases","test_jsonrpc","TestJsonrpc","","","test_eth_getBlockByNumber",""
+"passed","Thu Jul 13 16:30:41 CST 2023","Thu Jul 13 16:30:42 CST 2023","561","testcases","test_jsonrpc","TestJsonrpc","","","正确参数",""
