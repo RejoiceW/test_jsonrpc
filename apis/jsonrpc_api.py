@@ -8,7 +8,7 @@ class JsonrpcApi:
 
     # 读取配置文件数据
     conf_path = os.path.join(CONF_DIR, 'config.yaml')
-    conf_data = Utils().handle_yaml(conf_path)  # 调用工具类封装的读取文件的方法
+    conf_data = Utils.handle_yaml(conf_path)  # 调用工具类封装的读取文件的方法
     host = conf_data['env']['host'] + conf_data['env']['key']
     headers = conf_data['request_headers']['headers']
 
@@ -34,11 +34,11 @@ class JsonrpcApi:
         response = Utils.send_http(payload)
         return response
 
-    def get_logs(self, **data):
-        """"""
-        payload = {
-
-        }
+    # def get_logs(self, **data):
+    #     """"""
+    #     payload = {
+    #
+    #     }
     # def eth_getBlockByNumber(self, tag, boolean):
     #     """
     #     按区块号返回区块信息

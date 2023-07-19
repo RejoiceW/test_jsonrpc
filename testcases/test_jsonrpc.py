@@ -16,7 +16,6 @@ class TestJsonrpc(JsonrpcApi):
     """通过调用不同的业务，来完成相关测试"""
 
     @allure.feature("polygon_mumbai")  # 定义模块
-    @allure.title('{data[title]}')  # 测试报告的用例标题，取自用例文件
     @allure.description('获取当前配置的链 ID')  # 用例描述
     @pytest.mark.parametrize('data', datas['polygon_mumbai']['eth_chainId'])  # 读取测试用例文件数据实现参数化
     def test_eth_chainId(self, data):

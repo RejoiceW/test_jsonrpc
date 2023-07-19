@@ -2,16 +2,15 @@
 
 polygon_mumbai:
   eth_chainId:
-    - title: '正确参数'
-      payload:
-          jsonrpc: "2.0"
-          method: "eth_chainId"
-          params: []
-          id: 1
-      expected:  # 预期结果
-          jsonrpc: "2.0"
-          id: 1
-          result: "0x13881"
+    payload:
+      jsonrpc: "2.0"
+      method: "eth_chainId"
+      params: []
+      id: 1
+    expected:  # 预期结果
+      jsonrpc: "2.0"
+      id: 1
+      result: "0x13881"
 
   eth_syncing:
     - title: '正确参数'
