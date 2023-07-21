@@ -1,1 +1,1 @@
-{"total":3,"items":[{"uid":"80f623523e2a30fad8d65f7b1f3c21ff","name":"获取当前配置的链 ID","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}},{"uid":"96db7041a71638093449138714fa7820","name":"返回有关节点同步状态的信息","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
+{"total":1,"items":[{"uid":"c8c97580bffed5a68751e14d621ac8dd","name":"返回当前配置的链 ID","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}

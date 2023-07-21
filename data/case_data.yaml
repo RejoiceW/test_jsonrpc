@@ -2,25 +2,68 @@
 
 polygon_mumbai:
   eth_chainId:
-    payload:
-      jsonrpc: "2.0"
-      method: "eth_chainId"
-      params: []
-      id: 1
-    expected:  # 预期结果
-      jsonrpc: "2.0"
-      id: 1
-      result: "0x13881"
-
+    - payload:
+        jsonrpc: "2.0"
+        method: "eth_chainId"
+        params: []
+        id: 1
+      expected:  # 预期结果
+        jsonrpc: "2.0"
+        id: 1
+        result: "0x13881"
   eth_syncing:
-    - title: '正确参数'
-      payload:
+    - payload:
         jsonrpc: "2.0"
         method: "eth_syncing"
         params: []
         id: 1
       expected:
-        "jsonrpc": "2.0"
-        "id": 1
-        "result": false
+        jsonrpc: "2.0"
+        id: 1
+        result: false
+  eth_getBlockByNumber:
+    - payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByNumber"
+        params: ["latest", false]
+        id: 1
+      expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_getBlockByHash:
+    - payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByHash"
+        params: ["0x718413d8c146ef234687f310a6972e8c30737ec369a8268219309b0da05bc12d", false]
+        id: 1
+      expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_blockNumber:
+    - payload:
+        jsonrpc: "2.0"
+        method: "eth_blockNumber"
+        params: []
+        id: 1
+      expected:
+        jsonrpc: "2.0"
+        id: 1
 
+
+
+
+
+
+
+
+polygon_mainnet:
+  eth_chainId:
+    - payload:
+        jsonrpc: "2.0"
+        method: "eth_chainId"
+        params: [ ]
+        id: 1
+      expected: # 预期结果
+        jsonrpc: "2.0"
+        id: 1
+        result: "0x89"

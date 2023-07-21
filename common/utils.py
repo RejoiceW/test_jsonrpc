@@ -86,8 +86,9 @@ class Utils:
         :param target: 目标文本
         :return:
         """
+        new_content = str(content).strip('{}')  # 去掉首尾括号
         try:
-            assert str(content) in str(target)
+            assert new_content in str(target)
         except AssertionError as e:
-            logger.error(f"contains断言失败，目标文本{target}包含 文本{content}")
+            logger.error(f"contains断言失败，目标文本{target}，包含文本{new_content}")
             raise e
