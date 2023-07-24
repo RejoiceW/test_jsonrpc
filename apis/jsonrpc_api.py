@@ -65,25 +65,36 @@ class JsonrpcApi:
         }
         response = Utils.send_http(payload)
         return response
-    #
-    # def eth_gasPrice(self):
-    #     """返回以 wei 为单位的当前 gas 价格"""
-    #     payload = {
-    #         'url': self.host,
-    #         'method': 'post',
-    #         'headers': self.headers,
-    #         'json': {"jsonrpc": "2.0", "method": "eth_gasPrice", "params": [], "id": 1}
-    #     }
-    #     response = Utils.send_http(payload)
-    #     return response
-    #
-    # def eth_getBalance(self, address, tag):
-    #     """返回给定地址的账户余额"""
-    #     payload = {
-    #         'url': self.host,
-    #         'method': 'post',
-    #         'headers': self.headers,
-    #         'json': {"jsonrpc": "2.0", "method": "eth_getBalance", "params": [address, tag], "id": 1}
-    #     }
-    #     response = Utils.send_http(payload)
-    #     return response
+
+    def eth_gasPrice(self, url, **data):
+        """返回以 wei 为单位的当前 gas 价格"""
+        payload = {
+            'url': url,
+            'method': 'post',
+            'headers': self.headers,
+            'json': data
+        }
+        response = Utils.send_http(payload)
+        return response
+
+    def eth_getBalance(self, url, **data):
+        """返回给定地址的账户余额"""
+        payload = {
+            'url': url,
+            'method': 'post',
+            'headers': self.headers,
+            'json': data
+        }
+        response = Utils.send_http(payload)
+        return response
+
+    def eth_getLogs(self, url, **data):
+        """返回与给定过滤器对象匹配的所有日志的数组"""
+        payload = {
+            'url': url,
+            'method': 'post',
+            'headers': self.headers,
+            'json': data
+        }
+        response = Utils.send_http(payload)
+        return response

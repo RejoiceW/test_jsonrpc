@@ -27,3 +27,60 @@ class TestPolygonMainnet(JsonrpcApi):
         Utils.assert_response_status(result)
         Utils.assert_equal(data['expected'], result.json())
         logger.info('用例通过！')
+
+    @allure.feature('返回有关节点同步状态的信息')
+    @pytest.mark.parametrize('data', datas['polygon_mainnet']['eth_syncing'])
+    def test_eth_syncing(self, data):
+        result = self.eth_syncing(url, **data['payload'])
+        Utils.assert_response_status(result)
+        Utils.assert_equal(data['expected'], result.json())
+        logger.info('用例通过!')
+
+    @allure.feature('根据区块编号返回关于区块的信息')
+    @pytest.mark.parametrize('data', datas['polygon_mainnet']['eth_getBlockByNumber'])
+    def test_eth_getBlockByNumber(self, data):
+        result = self.eth_getBlockByNumber(url, **data['payload'])
+        Utils.assert_response_status(result)
+        Utils.assert_contains(data['expected'], result.json())
+        logger.info('用例通过!')
+
+    @allure.feature('根据哈希返回关于区块的信息')
+    @pytest.mark.parametrize('data', datas['polygon_mainnet']['eth_getBlockByHash'])
+    def test_eth_getBlockByHash(self, data):
+        result = self.eth_getBlockByHash(url, **data['payload'])
+        Utils.assert_response_status(result)
+        Utils.assert_contains(data['expected'], result.json())
+        logger.info('用例通过!')
+
+    @allure.feature('根据哈希返回关于区块的信息')
+    @pytest.mark.parametrize('data', datas['polygon_mainnet']['eth_blockNumber'])
+    def test_eth_blockNumber(self, data):
+        result = self.eth_blockNumber(url, **data['payload'])
+        Utils.assert_response_status(result)
+        Utils.assert_contains(data['expected'], result.json())
+        logger.info('用例通过!')
+
+    @allure.feature('返回以 wei 为单位的当前 gas 价格')
+    @pytest.mark.parametrize('data', datas['polygon_mainnet']['eth_gasPrice'])
+    def test_eth_gasPrice(self, data):
+        result = self.eth_gasPrice(url, **data['payload'])
+        Utils.assert_response_status(result)
+        Utils.assert_contains(data['expected'], result.json())
+        logger.info('用例通过!')
+
+    @allure.feature('返回给定地址的账户余额')
+    @pytest.mark.parametrize('data', datas['polygon_mainnet']['eth_getBalance'])
+    def test_eth_getBalance(self, data):
+        result = self.eth_getBalance(url, **data['payload'])
+        Utils.assert_response_status(result)
+        Utils.assert_equal(data['expected'], result.json())
+        logger.info('用例通过!')
+
+    @allure.feature('返回与给定过滤器对象匹配的所有日志的数组')
+    @pytest.mark.parametrize('data', datas['polygon_mainnet']['eth_getLogs'])
+    def test_eth_getLogs(self, data):
+        result = self.eth_getLogs(url, **data['payload'])
+        Utils.assert_response_status(result)
+        Utils.assert_contains(data['expected'], result.json())
+        logger.info('用例通过!')
+
