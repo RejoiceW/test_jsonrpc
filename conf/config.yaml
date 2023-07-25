@@ -1,7 +1,3 @@
 request_headers:
   headers: {"Content-Type": "application/json"}
 
-url:
-  polygon_mumbai: 'http://polygon-mumbai.testnet.863863.xyz/v1/rpc/fb90c5a628b19148d4f01da617219548c978cb6e'
-  polygon_mainnet: 'http://polygon.testnet.863863.xyz/v1/rpc/061f83980f74011801c3cb0f72411e37b3ad8e16'
-

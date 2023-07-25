@@ -32,7 +32,7 @@ class Utils:
         logger.info(f"请求地址：{url}")
         logger.info(f"请求头：{headers}")
         logger.info(f"请求参数：{params}")
-        logger.info(f"请求体：{json}\n")
+        logger.info(f"请求体：{json}")
 
     @classmethod
     def handle_yaml(cls, file_name):
