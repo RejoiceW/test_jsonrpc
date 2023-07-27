@@ -9,8 +9,6 @@ ethereum_mainnet:
         params: []
         id: 1
      expected:  # 预期结果
-        jsonrpc: "2.0"
-        id: 1
         result: "0x1"
   eth_syncing:
      payload:
@@ -31,49 +29,189 @@ ethereum_mainnet:
      expected:
         "hash": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3"
   eth_getBlockByHash:
-    - payload:
+     payload:
         jsonrpc: "2.0"
         method: "eth_getBlockByHash"
         params: ["0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3", false]
         id: 1
-      expected:
+     expected:
         "hash": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3"
   eth_blockNumber:
-    - payload:
+     payload:
         jsonrpc: "2.0"
         method: "eth_blockNumber"
         params: []
         id: 1
-      expected:
+     expected:
         jsonrpc: "2.0"
         id: 1
   eth_gasPrice:
-    - payload:
+     payload:
         jsonrpc: "2.0"
         method: "eth_gasPrice"
         params: []
         id: 1
-      expected:
+     expected:
         jsonrpc: "2.0"
         id: 1
   eth_getBalance:
-    - payload:
+     payload:
         jsonrpc: "2.0"
         method: "eth_getBalance"
         params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "earliest"]
         id: 1
-      expected:
-        jsonrpc: "2.0"
-        id: 1
+     expected:
         result: "0x0"
   eth_getLogs:
-    - payload:
+     payload:
         jsonrpc: "2.0"
         method: "eth_getLogs"
         params: [{"topics": ["0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c"]}]
         id: 1
-      expected:
+     expected:
         "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+
+ethereum_goerli:
+  url: 'http://ethereum-goerli.testnet.863863.xyz/v1/rpc/79b4ea96eef256f2e6c4f9d6129742b665ab49cf'
+  eth_chainId:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_chainId"
+        params: []
+        id: 1
+     expected:  # 预期结果
+        result: "0x5"
+  eth_syncing:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_syncing"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+        result: false
+  eth_getBlockByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByNumber"
+        params: ["earliest", false]
+        id: 1
+     expected:
+        "hash": "0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a"
+  eth_getBlockByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByHash"
+        params: ["0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a", false]
+        id: 1
+     expected:
+        "hash": "0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a"
+  eth_blockNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_blockNumber"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_gasPrice:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_gasPrice"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_getBalance:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBalance"
+        params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "earliest"]
+        id: 1
+     expected:
+        result: "0x0"
+  eth_getLogs:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getLogs"
+        params: [{"topics": ["0x96a25c8ce0baabc1fdefd93e9ed25d8e092a3332f3aa9a41722b5697231d1d1a"]}]
+        id: 1
+     expected:
+        "address": "0x1643e812ae58766192cf7d2cf9567df2c37e9b7f"
+
+ethereum_sepolia:
+  url: 'http://ethereum-sepolia.testnet.863863.xyz/v1/rpc/eb624208e5c8bf4e72cf8436c8be540c375432b3'
+  eth_chainId:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_chainId"
+        params: []
+        id: 1
+     expected:  # 预期结果
+        result: "0xaa36a7"
+  eth_syncing:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_syncing"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+        result: false
+  eth_getBlockByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByNumber"
+        params: ["earliest", false]
+        id: 1
+     expected:
+        "hash": "0x25a5cc106eea7138acab33231d7160d69cb777ee0c2c553fcddf5138993e6dd9"
+  eth_getBlockByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByHash"
+        params: ["0x25a5cc106eea7138acab33231d7160d69cb777ee0c2c553fcddf5138993e6dd9", false]
+        id: 1
+     expected:
+        "hash": "0x25a5cc106eea7138acab33231d7160d69cb777ee0c2c553fcddf5138993e6dd9"
+  eth_blockNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_blockNumber"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_gasPrice:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_gasPrice"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_getBalance:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBalance"
+        params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "earliest"]
+        id: 1
+     expected:
+        result: "0x0"
+  eth_getLogs:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getLogs"
+        params: [{"topics": ["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"]}]
+        id: 1
+     expected:
+        "address": "0x335ad79bc392062bdb9f98086d4dfe169e2273a1"
 
 polygon_mainnet:
   url: 'http://polygon.testnet.863863.xyz/v1/rpc/061f83980f74011801c3cb0f72411e37b3ad8e16'
@@ -84,8 +222,6 @@ polygon_mainnet:
         params: []
         id: 1
      expected:  # 预期结果
-        jsonrpc: "2.0"
-        id: 1
         result: "0x89"
   eth_syncing:
      payload:
@@ -138,8 +274,6 @@ polygon_mainnet:
         params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "earliest"]
         id: 1
      expected:
-        jsonrpc: "2.0"
-        id: 1
         result: "0x0"
   eth_getLogs:
      payload:
@@ -158,9 +292,7 @@ polygon_mumbai:
         method: "eth_chainId"
         params: []
         id: 1
-     expected:  # 预期结果
-        jsonrpc: "2.0"
-        id: 1
+     expected:
         result: "0x13881"
   eth_syncing:
      payload:
@@ -213,8 +345,6 @@ polygon_mumbai:
         params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "earliest"]
         id: 1
      expected:
-        jsonrpc: "2.0"
-        id: 1
         result: "0x0"
   eth_getLogs:
      payload:
@@ -224,3 +354,358 @@ polygon_mumbai:
         id: 1
      expected:
         "address": "0x0000000000000000000000000000000000001010"
+
+polygon_zkevm:
+  url: 'http://polygon-zkevm.testnet.863863.xyz/v1/rpc/ae4c5de9c0812d3501486efe2e004b2ff1f16f89'
+  eth_chainId:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_chainId"
+        params: []
+        id: 1
+     expected:
+        result: "0x44d"
+  eth_syncing:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_syncing"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+        result: false
+  eth_getBlockByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByNumber"
+        params: ["earliest", false]
+        id: 1
+     expected:
+        "hash": "0x81005434635456a16f74ff7023fbe0bf423abbc8a8deb093ffff455c0ad3b741"
+  eth_getBlockByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByHash"
+        params: ["0x81005434635456a16f74ff7023fbe0bf423abbc8a8deb093ffff455c0ad3b741", false]
+        id: 1
+     expected:
+        "hash": "0x81005434635456a16f74ff7023fbe0bf423abbc8a8deb093ffff455c0ad3b741"
+  eth_blockNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_blockNumber"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_gasPrice:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_gasPrice"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_getBalance:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBalance"
+        params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "earliest"]
+        id: 1
+     expected:
+        result: "0x0"
+  eth_getLogs:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getLogs"
+        params: [{"fromBlock": "3130151", "toBlock": "3130152"}]
+        id: 1
+     expected:
+        "address": "0x65a4b8a0927c7fd899aed24356bf83810f7b9a3f"
+
+klaytn_mainnet:
+  url: 'http://klaytn.testnet.863863.xyz/v1/rpc/8a079af11831d44e56e8b97eff9960c5680fc46d'
+  eth_chainId:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_chainId"
+        params: []
+        id: 1
+     expected:
+        result: "0x2019"
+  eth_syncing:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_syncing"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+        result: false
+  eth_getBlockByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByNumber"
+        params: ["earliest", false]
+        id: 1
+     expected:
+        "hash": "0xc72e5293c3c3ba38ed8ae910f780e4caaa9fb95e79784f7ab74c3c262ea7137e"
+  eth_getBlockByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByHash"
+        params: ["0xc72e5293c3c3ba38ed8ae910f780e4caaa9fb95e79784f7ab74c3c262ea7137e", false]
+        id: 1
+     expected:
+        "hash": "0xc72e5293c3c3ba38ed8ae910f780e4caaa9fb95e79784f7ab74c3c262ea7137e"
+  eth_blockNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_blockNumber"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_gasPrice:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_gasPrice"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_getBalance:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBalance"
+        params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "earliest"]
+        id: 1
+     expected:
+        result: "0x0"
+  eth_getLogs:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getLogs"
+        params: [{"address": "0x0655f5196Bd589632a1fd7f15d73382537ACCEe5"}]
+        id: 1
+     expected:
+        "address": "0x0655f5196bd589632a1fd7f15d73382537accee5"
+
+klaytn_Baobab:
+  url: 'http://klaytn-baobab.testnet.863863.xyz/v1/rpc/12eeb53289cbeed87aa399f27fe87bef131e5b6f'
+  eth_chainId:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_chainId"
+        params: []
+        id: 1
+     expected:
+        result: "0x3e9"
+  eth_syncing:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_syncing"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+        result: false
+  eth_getBlockByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByNumber"
+        params: ["earliest", false]
+        id: 1
+     expected:
+        "hash": "0xe33ff05ceec2581ca9496f38a2bf9baad5d4eed629e896ccb33d1dc991bc4b4a"
+  eth_getBlockByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByHash"
+        params: ["0xe33ff05ceec2581ca9496f38a2bf9baad5d4eed629e896ccb33d1dc991bc4b4a", false]
+        id: 1
+     expected:
+        "hash": "0xe33ff05ceec2581ca9496f38a2bf9baad5d4eed629e896ccb33d1dc991bc4b4a"
+  eth_blockNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_blockNumber"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_gasPrice:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_gasPrice"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_getBalance:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBalance"
+        params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "earliest"]
+        id: 1
+     expected:
+        result: "0x0"
+  eth_getLogs:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getLogs"
+        params: [{"topics": "0x0109fc6f55cf40689f02fbaad7af7fe7bbac8a3d2186600afc7d3e10cac60271"}]
+        id: 1
+     expected:
+        "address": "0xbd01edc16597f68e03607ba4b941596729ec78f7"
+
+zksync_era_mainnet:
+  url: 'http://zksync-era.testnet.863863.xyz/v1/rpc/824ed51b5d5e28794501d80d8e01634dae034c90'
+  eth_chainId:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_chainId"
+        params: []
+        id: 1
+     expected:
+        result: "0x144"
+  eth_syncing:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_syncing"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+        result: false
+  eth_getBlockByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByNumber"
+        params: ["earliest", false]
+        id: 1
+     expected:
+        "hash": "0xe8e77626586f73b955364c7b4bbf0bb7f7685ebd40e852b164633a4acbd3244c"
+  eth_getBlockByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByHash"
+        params: ["0xe8e77626586f73b955364c7b4bbf0bb7f7685ebd40e852b164633a4acbd3244c", false]
+        id: 1
+     expected:
+        "hash": "0xe8e77626586f73b955364c7b4bbf0bb7f7685ebd40e852b164633a4acbd3244c"
+  eth_blockNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_blockNumber"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_gasPrice:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_gasPrice"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_getBalance:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBalance"
+        params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "earliest"]
+        id: 1
+     expected:
+        result: "0x0"
+  eth_getLogs:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getLogs"
+        params: [{"topics": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"}]
+        id: 1
+     expected:
+        "address": "0x000000000000000000000000000000000000800a"
+
+zksync_era_testnet:
+  url: 'http://zksync-era-testnet.testnet.863863.xyz/v1/rpc/9c09f4f0192da8cea2324ad92e2962f56c2418f0'
+  eth_chainId:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_chainId"
+        params: []
+        id: 1
+     expected:
+        result: "0x118"
+  eth_syncing:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_syncing"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+        result: false
+  eth_getBlockByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByNumber"
+        params: ["earliest", false]
+        id: 1
+     expected:
+        "hash": "0xe8e77626586f73b955364c7b4bbf0bb7f7685ebd40e852b164633a4acbd3244c"
+  eth_getBlockByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockByHash"
+        params: ["0xe8e77626586f73b955364c7b4bbf0bb7f7685ebd40e852b164633a4acbd3244c", false]
+        id: 1
+     expected:
+        "hash": "0xe8e77626586f73b955364c7b4bbf0bb7f7685ebd40e852b164633a4acbd3244c"
+  eth_blockNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_blockNumber"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_gasPrice:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_gasPrice"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
+  eth_getBalance:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBalance"
+        params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "earliest"]
+        id: 1
+     expected:
+        result: "0x0"
+  eth_getLogs:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getLogs"
+        params: [{"topics": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"}]
+        id: 1
+     expected:
+        "address": "0x000000000000000000000000000000000000800a"
