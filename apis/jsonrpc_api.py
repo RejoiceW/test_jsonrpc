@@ -1,7 +1,8 @@
 """完成测试数据的组装, 通过调用不同的接口来实现具体业务逻辑"""
 
 import os
-from common.handle_path import CONF_DIR
+import yaml
+from common.handle_path import CONF_DIR, DATA_DIR
 from common.utils import Utils
 from common.wrapper import api_call
 
@@ -12,6 +13,10 @@ class JsonrpcApi:
     conf_path = os.path.join(CONF_DIR, 'config.yaml')
     conf_data = Utils.handle_yaml(conf_path)  # 调用工具类封装的读取文件的方法
     headers = conf_data['request_headers']['headers']
+    # 读取测试用例文件数据
+    # case_data_path = os.path.join(DATA_DIR, 'testnet_case_data.yaml')  # 测试环境
+    case_data_path = os.path.join(DATA_DIR, 'alphanet_case_data.yaml')  # 正式环境
+    data = yaml.safe_load(open(case_data_path, encoding='utf-8'))
 
     @api_call
     def eth_chainId(self, url, **data):
