@@ -646,41 +646,6 @@ class TestAll(JsonrpcApi):
         Utils.assert_contains(data['eth_call']['expected'], result.json())
         logger.info('用例通过!')
 
-    @allure.feature('eth_batchCall')
-    @allure.title('批量执行消息调用')
-    @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
-                                      datas['ethereum_goerli'],
-                                      datas['ethereum_sepolia'],
-                                      datas['polygon_mainnet'],
-                                      datas['polygon_mumbai'],
-                                      datas['polygon_zkevm'],
-                                      datas['klaytn_mainnet'],
-                                      datas['zksync_era_mainnet'],
-                                      datas['zksync_era_testnet'],
-                                      datas['arbitrum_one'],
-                                      datas['arbitrum_nova'],
-                                      datas['arbitrum_goerli'],
-                                      datas['op_mainnet'],
-                                      datas['op_goerli'],
-                                      datas['scroll'],
-                                      datas['bsc'],
-                                      datas['gnosis'],
-                                      datas['avax'],
-                                      datas['fantom'],
-                                      datas['cronos'],
-                                      datas['oasys'],
-                                      # datas['conflux'],
-                                      datas['meter'],
-                                      datas['zeta_testnet_evm'],
-                                      datas['base_goerli'],
-                                      datas['base_mainnet']
-                                      ])
-    def test_eth_batchCall(self, data):
-        result = self.eth_batchCall(data['url'], **data['eth_batchCall']['payload'])
-        Utils.assert_response_status(result)
-        Utils.assert_contains(data['eth_batchCall']['expected'], result.json())
-        logger.info('用例通过!')
-
     @allure.feature('eth_getStorageAt')
     @allure.title('从给定地址的存储位置返回值')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
@@ -1029,4 +994,74 @@ class TestAll(JsonrpcApi):
         result = self.web3_clientVersion(data['url'], **data['web3_clientVersion']['payload'])
         Utils.assert_response_status(result)
         Utils.assert_contains(data['web3_clientVersion']['expected'], result.json())
+        logger.info('用例通过!')
+
+    @allure.feature('web3_sha3')
+    @allure.title('返回给定数据的 Keccak-256')
+    @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
+                                      datas['ethereum_goerli'],
+                                      datas['ethereum_sepolia'],
+                                      datas['polygon_mainnet'],
+                                      datas['polygon_mumbai'],
+                                      datas['polygon_zkevm'],
+                                      datas['klaytn_mainnet'],
+                                      datas['zksync_era_mainnet'],
+                                      datas['zksync_era_testnet'],
+                                      datas['arbitrum_one'],
+                                      datas['arbitrum_nova'],
+                                      datas['arbitrum_goerli'],
+                                      datas['op_mainnet'],
+                                      datas['op_goerli'],
+                                      datas['scroll'],
+                                      datas['bsc'],
+                                      datas['gnosis'],
+                                      datas['avax'],
+                                      datas['fantom'],
+                                      datas['cronos'],
+                                      datas['oasys'],
+                                      # datas['conflux'],
+                                      datas['meter'],
+                                      datas['zeta_testnet_evm'],
+                                      datas['base_goerli'],
+                                      datas['base_mainnet']
+                                      ])
+    def test_web3_sha3(self, data):
+        result = self.web3_sha3(data['url'], **data['web3_sha3']['payload'])
+        Utils.assert_response_status(result)
+        Utils.assert_contains(data['web3_sha3']['expected'], result.json())
+        logger.info('用例通过!')
+
+    @allure.feature('txpool_status')
+    @allure.title('返回当前待包含在下一个块中的交易数量，以及计划仅在将来执行的交易数量')
+    @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
+                                      datas['ethereum_goerli'],
+                                      datas['ethereum_sepolia'],
+                                      datas['polygon_mainnet'],
+                                      datas['polygon_mumbai'],
+                                      datas['polygon_zkevm'],
+                                      datas['klaytn_mainnet'],
+                                      datas['zksync_era_mainnet'],
+                                      datas['zksync_era_testnet'],
+                                      datas['arbitrum_one'],
+                                      datas['arbitrum_nova'],
+                                      datas['arbitrum_goerli'],
+                                      datas['op_mainnet'],
+                                      datas['op_goerli'],
+                                      datas['scroll'],
+                                      datas['bsc'],
+                                      datas['gnosis'],
+                                      datas['avax'],
+                                      datas['fantom'],
+                                      datas['cronos'],
+                                      datas['oasys'],
+                                      # datas['conflux'],
+                                      datas['meter'],
+                                      datas['zeta_testnet_evm'],
+                                      datas['base_goerli'],
+                                      datas['base_mainnet']
+                                      ])
+    def test_txpool_status(self, data):
+        result = self.txpool_status(data['url'], **data['txpool_status']['payload'])
+        Utils.assert_response_status(result)
+        Utils.assert_contains(data['txpool_status']['expected'], result.json())
         logger.info('用例通过!')

@@ -364,3 +364,27 @@ class JsonrpcApi:
         }
         response = Utils.send_http(payload)
         return response
+
+    @api_call
+    def web3_sha3(self, url, **data):
+        """返回给定数据的 Keccak-256"""
+        payload = {
+            'url': url,
+            'method': 'post',
+            'headers': self.headers,
+            'json': data
+        }
+        response = Utils.send_http(payload)
+        return response
+
+    @api_call
+    def txpool_status(self, url, **data):
+        """返回当前待包含在下一个块中的交易数量，以及计划仅在将来执行的交易数量"""
+        payload = {
+            'url': url,
+            'method': 'post',
+            'headers': self.headers,
+            'json': data
+        }
+        response = Utils.send_http(payload)
+        return response

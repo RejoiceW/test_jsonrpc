@@ -156,54 +156,6 @@ ethereum_mainnet:
         id: 1
      expected:
         "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
-  eth_batchCall:
-     payload:
-        jsonrpc: "2.0"
-        method: "eth_batchCall"
-        params: [
-           {
-           "jsonrpc": "2.0",
-	       "method": "eth_syncing",
-	       "params": [],
-	       "id": 15
-           },
-	       {
-	       "jsonrpc": "2.0",
-	       "method": "eth_blockNumber",
-	       "params": [],
-	       "id": 1
-	       },
-	       {
-	       "jsonrpc": "2.0",
-	        "method": "eth_syncing",
-	        "params": [],
-	        "id": 14
-	       },
-	       {
-	       "jsonrpc": "2.0",
-	       "method": "eth_blockNumber",
-	       "params": [],
-	       "id": 1
-	       },
-	       {
-	       "jsonrpc": "2.0",
-	       "method": "eth_gasPrice",
-	       "params": [],
-	       "id": 1
-	       },
-	       {
-	       "jsonrpc": "2.0",
-	       "method": "eth_getLogs",
-	   	   "params": [{"topics": []}],
-	       "id": 1
-	       }]
-        id: 1
-     expected:
-       {
-         "jsonrpc": "2.0",
-         "id": 15,
-         "result": false
-       }
   eth_getStorageAt:
      payload:
         jsonrpc: "2.0"
@@ -229,7 +181,7 @@ ethereum_mainnet:
         params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
         id: 1
      expected:
-        "jsonrpc": "2.0",
+        "jsonrpc": "2.0"
         "id": 1
   eth_newBlockFilter:
      payload:
@@ -238,7 +190,7 @@ ethereum_mainnet:
         params: []
         id: 1
      expected:
-        "jsonrpc": "2.0",
+        "jsonrpc": "2.0"
         "id": 1
   eth_newPendingTransactionFilter:
      payload:
@@ -247,7 +199,7 @@ ethereum_mainnet:
         params: []
         id: 1
      expected:
-        "jsonrpc": "2.0",
+        "jsonrpc": "2.0"
         "id": 1
   eth_getFilterChanges:
      payload:
@@ -256,7 +208,7 @@ ethereum_mainnet:
         params: ["0x16"]
         id: 1
      expected:
-        "jsonrpc": "2.0",
+        "jsonrpc": "2.0"
         "id": 1
   net_version:
      payload:
@@ -292,6 +244,23 @@ ethereum_mainnet:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 ethereum_goerli:
   url: "https://goerli.blockpi.network/v1/rpc/50d2289a8a85fd02397bae7f170550d47cf632e3"
@@ -355,6 +324,62 @@ ethereum_goerli:
         id: 1
      expected:
         result: "0x0"
+  eth_getTransactionByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByHash"
+        params: ["0xe3690f0ac2a9d80f25adfecc176542fd2d677172774a8d735350e7391164acce"]
+        id: 1
+     expected:
+        "blockHash": "0xba31a462d18db9e4315e80d8b44e7394d700f4c55cb2e693af3be3fd9908be55"
+  eth_getTransactionByBlockHashAndIndex:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByBlockHashAndIndex"
+        params: ["0xa8d01d6d5e70cb3bd8cd423eaa11714b89adef041141e4ca31bcdc6879543b23","0x0"]
+        id: 1
+     expected:
+        "blockHash": "0xa8d01d6d5e70cb3bd8cd423eaa11714b89adef041141e4ca31bcdc6879543b23"
+  eth_getTransactionByBlockNumberAndIndex:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByBlockNumberAndIndex"
+        params: ["0xF2F8D7","0x0"]
+        id: 1
+     expected:
+        "blockHash": "0xa8d01d6d5e70cb3bd8cd423eaa11714b89adef041141e4ca31bcdc6879543b23"
+  eth_getTransactionReceipt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionReceipt"
+        params: ["0xe3690f0ac2a9d80f25adfecc176542fd2d677172774a8d735350e7391164acce"]
+        id: 1
+     expected:
+        "blockHash": "0xba31a462d18db9e4315e80d8b44e7394d700f4c55cb2e693af3be3fd9908be55"
+  eth_getTransactionCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionCount"
+        params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", 16191500]
+        id: 1
+     expected:
+        "result": "0x0"
+  eth_getBlockTransactionCountByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockTransactionCountByHash"
+        params: ["0xa8d01d6d5e70cb3bd8cd423eaa11714b89adef041141e4ca31bcdc6879543b23"]
+        id: 1
+     expected:
+        "result": "0xcc"
+  eth_getBlockTransactionCountByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockTransactionCountByNumber"
+        params: [16191500]
+        id: 1
+     expected:
+        "result": "0x11c"
   eth_getLogs:
      payload:
         jsonrpc: "2.0"
@@ -427,6 +452,62 @@ ethereum_sepolia:
         id: 1
      expected:
         result: "0x0"
+  eth_getTransactionByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByHash"
+        params: ["0x48b466efe69e60a65b56368dfe755acfe87b1a5908528c87b1a1f8d814550ff6"]
+        id: 1
+     expected:
+        "blockHash": "0x01450eb2d7150638fac438f557f82a15a5161fc756aaf18c5857029a218690b3"
+  eth_getTransactionByBlockHashAndIndex:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByBlockHashAndIndex"
+        params: ["0x01450eb2d7150638fac438f557f82a15a5161fc756aaf18c5857029a218690b3","0x0"]
+        id: 1
+     expected:
+        "blockHash": "0x01450eb2d7150638fac438f557f82a15a5161fc756aaf18c5857029a218690b3"
+  eth_getTransactionByBlockNumberAndIndex:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByBlockNumberAndIndex"
+        params: ["0x3d6350","0x0"]
+        id: 1
+     expected:
+        "blockHash": "0x01450eb2d7150638fac438f557f82a15a5161fc756aaf18c5857029a218690b3"
+  eth_getTransactionReceipt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionReceipt"
+        params: ["0x48b466efe69e60a65b56368dfe755acfe87b1a5908528c87b1a1f8d814550ff6"]
+        id: 1
+     expected:
+        "blockHash": "0x01450eb2d7150638fac438f557f82a15a5161fc756aaf18c5857029a218690b3"
+  eth_getTransactionCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionCount"
+        params: ["0x407d73d8a49eeb85d32cf465507dd71d507100c1", 16191500]
+        id: 1
+     expected:
+        "result": "0x0"
+  eth_getBlockTransactionCountByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockTransactionCountByHash"
+        params: ["0x01450eb2d7150638fac438f557f82a15a5161fc756aaf18c5857029a218690b3"]
+        id: 1
+     expected:
+        "result": "0x59"
+  eth_getBlockTransactionCountByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockTransactionCountByNumber"
+        params: [16191500]
+        id: 1
+     expected:
+        "result": "0x59"
   eth_getLogs:
      payload:
         jsonrpc: "2.0"
@@ -436,6 +517,132 @@ ethereum_sepolia:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "11155111"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 polygon_mainnet:
   url: "https://polygon.blockpi.network/v1/rpc/e2c3ece4719b206db9da2affedc3c60fcf465c4c"
@@ -499,6 +706,62 @@ polygon_mainnet:
         id: 1
      expected:
         result: "0x0"
+  eth_getTransactionByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByHash"
+        params: ["0xb097d9300a47101a539fec545c035c944f480015e70e09fc7cebf8720da305f6"]
+        id: 1
+     expected:
+        "blockHash": "0x301232a287320e3a49f1828bb4823f9850815a71e55a17cc3e9c13ee5203f45c"
+  eth_getTransactionByBlockHashAndIndex:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByBlockHashAndIndex"
+        params: ["0x301232a287320e3a49f1828bb4823f9850815a71e55a17cc3e9c13ee5203f45c","0x0"]
+        id: 1
+     expected:
+        "blockHash": "0x301232a287320e3a49f1828bb4823f9850815a71e55a17cc3e9c13ee5203f45c"
+  eth_getTransactionByBlockNumberAndIndex:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByBlockNumberAndIndex"
+        params: ["0x2bc3d00","0x0"]
+        id: 1
+     expected:
+        "blockHash": "0x301232a287320e3a49f1828bb4823f9850815a71e55a17cc3e9c13ee5203f45c"
+  eth_getTransactionReceipt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionReceipt"
+        params: ["0xb097d9300a47101a539fec545c035c944f480015e70e09fc7cebf8720da305f6"]
+        id: 1
+     expected:
+        "blockHash": "0x301232a287320e3a49f1828bb4823f9850815a71e55a17cc3e9c13ee5203f45c"
+  eth_getTransactionCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionCount"
+        params: ["0x0630c034ac38e0f7c25abc6a215ff4889900af0f", "0x2bc3f01"]
+        id: 1
+     expected:
+        "result": "0xe90c"
+  eth_getBlockTransactionCountByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockTransactionCountByHash"
+        params: ["0xa8d01d6d5e70cb3bd8cd423eaa11714b89adef041141e4ca31bcdc6879543b23"]
+        id: 1
+     expected:
+        "result": "0xcc"
+  eth_getBlockTransactionCountByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockTransactionCountByNumber"
+        params: [16191500]
+        id: 1
+     expected:
+        "result": "0x11c"
   eth_getLogs:
      payload:
         jsonrpc: "2.0"
@@ -507,6 +770,132 @@ polygon_mainnet:
         id: 1
      expected:
         "address": "0x0000000000000000000000000000000000001010"
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 polygon_mumbai:
   url: "https://polygon-mumbai.blockpi.network/v1/rpc/2a251f21b7767a6945c2a17ae3d4cb9161e8ad0d"
@@ -579,6 +968,132 @@ polygon_mumbai:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 polygon_zkevm:
   url: "https://polygon-zkevm.blockpi.network/v1/rpc/e1528de3cf95b7219681a29bc58343ae1754ed17"
@@ -599,7 +1114,6 @@ polygon_zkevm:
      expected:
         jsonrpc: "2.0"
         id: 1
-        result: false
   eth_getBlockByNumber:
      payload:
         jsonrpc: "2.0"
@@ -651,6 +1165,132 @@ polygon_zkevm:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 klaytn_mainnet:
   url: "https://klaytn.blockpi.network/v1/rpc/65bbb6900d08a9f0621d4bc935e32aa3f3637415"
@@ -723,6 +1363,132 @@ klaytn_mainnet:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 klaytn_baobab:
   url: "https://klaytn-baobab.blockpi.network/v1/rpc/29e4c09bb9000c3c10446122f1eed81d1a32fbc0"
@@ -794,6 +1560,132 @@ klaytn_baobab:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 zksync_era_mainnet:
   url: "https://zksync-era.blockpi.network/v1/rpc/0a94e6a4604d50250e1a7499a7f3fd341bdf920f"
@@ -866,6 +1758,132 @@ zksync_era_mainnet:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 zksync_era_testnet:
   url: "https://zksync-era-testnet.blockpi.network/v1/rpc/a6c4a63b423e4cf57b47732ac188244908428211"
@@ -938,6 +1956,132 @@ zksync_era_testnet:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 arbitrum_one:
   url: "https://arbitrum.blockpi.network/v1/rpc/7a1c28c073f0a367694943ecd78e6b6365a85e2e"
@@ -1010,6 +2154,132 @@ arbitrum_one:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 arbitrum_nova:
   url: "https://arbitrum-nova.blockpi.network/v1/rpc/7419089c6c796aeb1a52c7544600331989d4452e"
@@ -1082,6 +2352,132 @@ arbitrum_nova:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 arbitrum_goerli:
   url: "https://arbitrum-goerli.blockpi.network/v1/rpc/021f6421661f80c7bf9f69c6fd3a7a24f2f4d1fe"
@@ -1092,7 +2488,7 @@ arbitrum_goerli:
         params: []
         id: 1
      expected:
-        result: "0xa4ba"
+        result: "0x66eed"
   eth_syncing:
      payload:
         jsonrpc: "2.0"
@@ -1154,6 +2550,132 @@ arbitrum_goerli:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 op_mainnet:
   url: "https://optimism.blockpi.network/v1/rpc/e3503a4ded94c29e7f32963d5c1815c9af9022a1"
@@ -1226,6 +2748,132 @@ op_mainnet:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 op_goerli:
   url: "https://optimism-goerli.blockpi.network/v1/rpc/b966ab9c3e88fe80fa20a9f1cc2135c676c7e63e"
@@ -1236,7 +2884,7 @@ op_goerli:
         params: []
         id: 1
      expected:
-        result: "0xa"
+        result: "0x1a4"
   eth_syncing:
      payload:
         jsonrpc: "2.0"
@@ -1298,6 +2946,132 @@ op_goerli:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 scroll:
   url: "https://scroll-testnet.blockpi.network/v1/rpc/9cb5386f4ade590f333d94b149b0251ffe2bc481"
@@ -1370,6 +3144,132 @@ scroll:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 bsc:
   url: "https://bsc.blockpi.network/v1/rpc/dd44fed6d9b6239f6ae2795148e8aa3880944ef5"
@@ -1442,6 +3342,132 @@ bsc:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 gnosis:
   url: "https://gnosis.blockpi.network/v1/rpc/4d27b3fbf8a1e9ef917bca1ae66e18180a9a577d"
@@ -1514,6 +3540,132 @@ gnosis:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 avax:
   url: "https://avalanche.blockpi.network/v1/rpc/a411c569488bd8a12324a9f37458fb78a1d01dd7"
@@ -1586,6 +3738,132 @@ avax:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 fantom:
   url: "https://fantom.blockpi.network/v1/rpc/a63450ace682f2095cbc0866e8627df023a29df3"
@@ -1658,6 +3936,132 @@ fantom:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 cronos:
   url: "https://cronos.blockpi.network/v1/rpc/2aa6d71452ca0fa1825fe14afa25f6277e78fb7f"
@@ -1730,6 +4134,132 @@ cronos:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 oasys:
   url: "https://oasys.blockpi.network/v1/rpc/880f7751e054a3d93e6c628c65a6d2d300a813dd"
@@ -1802,6 +4332,132 @@ oasys:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 meter:
   url: "https://meter.blockpi.network/v1/rpc/a9da21d82715e94588a4a2d9cbc93689fce74ca5"
@@ -1873,6 +4529,132 @@ meter:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 zeta_testnet_evm:
   url: "https://zetachain-athens-evm.blockpi.network/v1/rpc/4cd05235f281933f3f2ba0bd81a4c702598ca8de"
@@ -1945,6 +4727,132 @@ zeta_testnet_evm:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 base_goerli:
   url: "https://base-goerli.blockpi.network/v1/rpc/5f1076bbe5f078f8c55968f7e67015e86e5d0146"
@@ -1955,7 +4863,7 @@ base_goerli:
         params: []
         id: 1
      expected:
-        result: "0x1b59"
+        result: "0x14a33"
   eth_syncing:
      payload:
         jsonrpc: "2.0"
@@ -2017,6 +4925,132 @@ base_goerli:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
 
 base_mainnet:
   url: "https://base.blockpi.network/v1/rpc/07c71e4b71dbc3e492afe604c7e13fb9a3c9db42"
@@ -2027,7 +5061,7 @@ base_mainnet:
         params: []
         id: 1
      expected:
-        result: "0x1b59"
+        result: "0x2105"
   eth_syncing:
      payload:
         jsonrpc: "2.0"
@@ -2089,3 +5123,129 @@ base_mainnet:
      expected:
         "jsonrpc": "2.0"
         "id": 1
+  eth_getCode:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getCode"
+        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        id: 1
+     expected:
+        "result": "0x"
+  eth_call:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_call"
+        params: [
+           {"from": null,
+            "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+            "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+           },
+           "latest"]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+  eth_getStorageAt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getStorageAt"
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        id: 1
+     expected:
+        "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
+  eth_estimateGas:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_estimateGas"
+        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
+                  "value": "0x186a0"}]
+        id: 1
+     expected:
+        "result": "0x5208"
+  eth_newFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newFilter"
+        params: [{"topics": ["0x1234123412341234123412341111111111111111111111111111111111111111"]}]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newBlockFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newBlockFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_newPendingTransactionFilter:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_newPendingTransactionFilter"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  eth_getFilterChanges:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getFilterChanges"
+        params: ["0x16"]
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  net_version:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_version"
+        params: []
+        id: 83
+     expected:
+        "result": "1"
+  net_listening:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_listening"
+        params: []
+        id: 83
+     expected:
+        "result": true
+  net_peerCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "net_peerCount"
+        params: []
+        id: 83
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_clientVersion:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_clientVersion"
+        params: []
+        id: 1
+     expected:
+        "jsonrpc": "2.0"
+        "id": 1
+  web3_sha3:
+     payload:
+        jsonrpc: "2.0"
+        method: "web3_sha3"
+        params: ["0x68656c6c6f20776f726c64"]
+        id: 1
+     expected:
+        "result": "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  txpool_status:
+     payload:
+        jsonrpc: "2.0"
+        method: "txpool_status"
+        params: []
+        id: 1
+     expected:
+        jsonrpc: "2.0"
+        id: 1
