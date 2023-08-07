@@ -1725,7 +1725,7 @@ meter:
         "jsonrpc": "2.0"
         "id": 1
 
-zeta_testnet_evm:
+zeta_evm:
   url: "http://zeta-testnet-evm.testnet.863863.xyz/v1/rpc/31c73645ba1027061f928f668d492a32dc399a62"
   eth_chainId:
      payload:

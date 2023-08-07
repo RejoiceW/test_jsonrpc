@@ -36,7 +36,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -71,7 +71,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -106,7 +106,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -141,7 +141,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -176,7 +176,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -211,7 +211,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -246,7 +246,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -281,7 +281,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -316,7 +316,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -351,7 +351,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -387,7 +387,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -424,7 +424,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -459,7 +459,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -494,7 +494,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -530,7 +530,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -566,7 +566,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -601,7 +601,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -636,7 +636,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -671,7 +671,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -706,7 +706,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -741,7 +741,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -776,7 +776,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -811,7 +811,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -846,7 +846,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -881,7 +881,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -916,7 +916,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -951,7 +951,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -986,7 +986,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -1021,7 +1021,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])
@@ -1056,7 +1056,7 @@ class TestAll(JsonrpcApi):
                                       datas['oasys'],
                                       # datas['conflux'],
                                       datas['meter'],
-                                      datas['zeta_testnet_evm'],
+                                      datas['zeta_evm'],
                                       datas['base_goerli'],
                                       datas['base_mainnet']
                                       ])

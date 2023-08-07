@@ -4656,7 +4656,7 @@ meter:
         jsonrpc: "2.0"
         id: 1
 
-zeta_testnet_evm:
+zeta_evm:
   url: "https://zetachain-athens-evm.blockpi.network/v1/rpc/4cd05235f281933f3f2ba0bd81a4c702598ca8de"
   eth_chainId:
      payload:
