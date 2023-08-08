@@ -7,11 +7,12 @@ from apis.jsonrpc_api import JsonrpcApi
 datas = JsonrpcApi.data
 
 
+@pytest.mark.all
 class TestAll(JsonrpcApi):
     """通过调用不同的业务，来完成相关测试"""
 
     @allure.feature('eth_chainId')
-    @allure.title('返回当前配置的链id')
+    @allure.story('返回当前配置的链id')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -47,7 +48,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过！')
 
     @allure.feature('eth_syncing')
-    @allure.title('返回有关节点同步状态的信息')
+    @allure.story('返回有关节点同步状态的信息')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -82,7 +83,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getBlockByNumber')
-    @allure.title('根据区块编号返回关于区块的信息')
+    @allure.story('根据区块编号返回关于区块的信息')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -117,7 +118,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getBlockByHash')
-    @allure.title('根据哈希返回关于区块的信息')
+    @allure.story('根据哈希返回关于区块的信息')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -152,7 +153,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getBlockReceipts')
-    @allure.title('获取给定区块的所有交易数据')
+    @allure.story('获取给定区块的所有交易数据')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -187,7 +188,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_blockNumber')
-    @allure.title('返回最新区块的编号')
+    @allure.story('返回最新区块的编号')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -222,7 +223,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_gasPrice')
-    @allure.title('返回以 wei 为单位的当前 gas 价格')
+    @allure.story('返回以 wei 为单位的当前 gas 价格')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -257,7 +258,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getBalance')
-    @allure.title('返回给定地址的账户余额')
+    @allure.story('返回给定地址的账户余额')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -292,7 +293,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getTransactionByHash')
-    @allure.title('返回关于按交易哈希请求的交易的信息')
+    @allure.story('返回关于按交易哈希请求的交易的信息')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -327,7 +328,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getTransactionByBlockHashAndIndex')
-    @allure.title('根据区块哈希和交易索引位置返回关于交易的信息')
+    @allure.story('根据区块哈希和交易索引位置返回关于交易的信息')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -363,7 +364,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getTransactionByBlockNumberAndIndex')
-    @allure.title('根据区块编号和交易索引位置返回关于交易的信息')
+    @allure.story('根据区块编号和交易索引位置返回关于交易的信息')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -400,7 +401,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getTransactionReceipt')
-    @allure.title('根据交易哈希返回交易的数据')
+    @allure.story('根据交易哈希返回交易的数据')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -435,7 +436,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getTransactionCount')
-    @allure.title('返回从一个地址发送的交易数量')
+    @allure.story('返回从一个地址发送的交易数量')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -470,7 +471,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getBlockTransactionCountByHash')
-    @allure.title('返回从一个地址发送的交易数量')
+    @allure.story('返回从一个地址发送的交易数量')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -506,7 +507,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getBlockTransactionCountByNumber')
-    @allure.title('返回匹配给定区块编号的区块中的交易数量')
+    @allure.story('返回匹配给定区块编号的区块中的交易数量')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -542,7 +543,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getLogs')
-    @allure.title('返回与给定过滤器对象匹配的所有日志的数组')
+    @allure.story('返回与给定过滤器对象匹配的所有日志的数组')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -577,7 +578,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getCode')
-    @allure.title('返回位于给定地址的代码')
+    @allure.story('返回位于给定地址的代码')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -612,7 +613,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_call')
-    @allure.title('立即执行新的消息调用，而不在区块链上创建交易')
+    @allure.story('立即执行新的消息调用，而不在区块链上创建交易')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -647,7 +648,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getStorageAt')
-    @allure.title('从给定地址的存储位置返回值')
+    @allure.story('从给定地址的存储位置返回值')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -682,7 +683,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_estimateGas')
-    @allure.title('生成并返回允许交易完成所需燃料数量的估算值')
+    @allure.story('生成并返回允许交易完成所需燃料数量的估算值')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -717,7 +718,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_newFilter')
-    @allure.title('基于过滤器选项创建一个过滤器对象，以在状态更改（日志）时发出通知')
+    @allure.story('基于过滤器选项创建一个过滤器对象，以在状态更改（日志）时发出通知')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -752,7 +753,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_newBlockFilter')
-    @allure.title('在节点中创建一个过滤器，以在新区块到达时发出通知')
+    @allure.story('在节点中创建一个过滤器，以在新区块到达时发出通知')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -787,7 +788,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_newPendingTransactionFilter')
-    @allure.title('在节点中创建一个过滤器，以在新的待处理交易到达时发出通知')
+    @allure.story('在节点中创建一个过滤器，以在新的待处理交易到达时发出通知')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -822,7 +823,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('eth_getFilterChanges')
-    @allure.title('过滤器的轮询方法，会返回自上次轮询以来产生的日志数组')
+    @allure.story('过滤器的轮询方法，会返回自上次轮询以来产生的日志数组')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -857,7 +858,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('net_version')
-    @allure.title('返回当前网络 id')
+    @allure.story('返回当前网络 id')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -892,7 +893,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('net_listening')
-    @allure.title('如果客户端正在主动监听网络连接，则返回 true')
+    @allure.story('如果客户端正在主动监听网络连接，则返回 true')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -927,7 +928,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('net_peerCount')
-    @allure.title('返回当前连接到客户端的对等点数')
+    @allure.story('返回当前连接到客户端的对等点数')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -962,7 +963,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('web3_clientVersion')
-    @allure.title('返回当前客户端版本')
+    @allure.story('返回当前客户端版本')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -997,7 +998,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('web3_sha3')
-    @allure.title('返回给定数据的 Keccak-256')
+    @allure.story('返回给定数据的 Keccak-256')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],
@@ -1032,7 +1033,7 @@ class TestAll(JsonrpcApi):
         logger.info('用例通过!')
 
     @allure.feature('txpool_status')
-    @allure.title('返回当前待包含在下一个块中的交易数量，以及计划仅在将来执行的交易数量')
+    @allure.story('返回当前待包含在下一个块中的交易数量，以及计划仅在将来执行的交易数量')
     @pytest.mark.parametrize('data', [datas['ethereum_mainnet'],  # 读取测试用例文件数据实现参数化
                                       datas['ethereum_goerli'],
                                       datas['ethereum_sepolia'],

@@ -12,7 +12,7 @@ report --->测试报告\
 testcases --->测试用例\
 conftest --->前置条件处理\
 pytest.ini --->pytest配置文件\
-run.py --->测试用例运行主程序\
+run.py --->测试用例运行主程序
 
 ### 测试报告
 运行run.py后，当用例全部执行完毕，allure会自动收集测试报告到/report/html/中，打开index.html即可看到完整测试报告。
