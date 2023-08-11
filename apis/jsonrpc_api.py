@@ -1,21 +1,16 @@
 """完成测试数据的组装, 通过调用不同的接口来实现具体业务逻辑"""
-
-import os
 import yaml
-from common.handle_path import CONF_DIR, DATA_DIR
+from common.handle_path import CONFIG_DIR, CASE_DIR
 from common.utils import Utils
 from common.wrapper import api_call
 
 
 class JsonrpcApi:
-    # 读取配置文件数据
-    conf_path = os.path.join(CONF_DIR, 'config.yaml')
-    conf_data = Utils.handle_yaml(conf_path)  # 调用工具类封装的读取文件的方法
-    headers = conf_data['request_headers']['headers']
+    # 读取配置文件数
+    header = yaml.safe_load(open(CONFIG_DIR, encoding='utf-8'))
+    headers = header['request_headers']['headers']
     # 读取测试用例文件数据
-    # case_data_path = os.path.join(DATA_DIR, 'testnet_case_data.yaml')  # 测试环境
-    case_data_path = os.path.join(DATA_DIR, 'alphanet_case_data.yaml')  # 正式环境
-    data = yaml.safe_load(open(case_data_path, encoding='utf-8'))
+    data = yaml.safe_load(open(CASE_DIR, encoding='utf-8'))
 
     @api_call
     def eth_chainId(self, url, **data):
@@ -56,18 +51,6 @@ class JsonrpcApi:
     @api_call
     def eth_getBlockByHash(self, url, **data):
         """根据哈希返回区块信息"""
-        payload = {
-            'url': url,
-            'method': 'post',
-            'headers': self.headers,
-            'json': data
-        }
-        response = Utils.send_http(payload)
-        return response
-
-    @api_call
-    def eth_getBlockReceipts(self, url, **data):
-        """获取给定区块的所有交易数据"""
         payload = {
             'url': url,
             'method': 'post',

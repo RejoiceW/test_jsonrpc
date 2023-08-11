@@ -9,4 +9,3 @@ if __name__ == '__main__':
     pytest.main(['-v', '-s', r"--alluredir=report/json", "--clean-alluredir"])
     # 从./report/json目录将生成的报告输出到./report/html目录中,-c用于在生成新报告之前清理先前的报告
     os.system('allure generate ./report/json -o ./report/html -c')
-

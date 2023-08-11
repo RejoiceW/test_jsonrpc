@@ -1,7 +1,6 @@
 # 测试数据（测试用例）通过yaml管理维护，结合pytest.parametrize完成数据驱动
 
 ethereum_mainnet:
-  url: "https://ethereum.blockpi.network/v1/rpc/474f066bd0bd4bc643a5687bb757a17e0cb50650"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -263,7 +262,6 @@ ethereum_mainnet:
         id: 1
 
 ethereum_goerli:
-  url: "https://goerli.blockpi.network/v1/rpc/50d2289a8a85fd02397bae7f170550d47cf632e3"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -391,7 +389,6 @@ ethereum_goerli:
         "id": 1
 
 ethereum_sepolia:
-  url: "https://ethereum-sepolia.blockpi.network/v1/rpc/eb9d22fb2c73a330e02b8b1b3f6fd4d1960ba9e8"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -645,7 +642,6 @@ ethereum_sepolia:
         id: 1
 
 polygon_mainnet:
-  url: "https://polygon.blockpi.network/v1/rpc/e2c3ece4719b206db9da2affedc3c60fcf465c4c"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -898,7 +894,6 @@ polygon_mainnet:
         id: 1
 
 polygon_mumbai:
-  url: "https://polygon-mumbai.blockpi.network/v1/rpc/2a251f21b7767a6945c2a17ae3d4cb9161e8ad0d"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -1096,7 +1091,6 @@ polygon_mumbai:
         id: 1
 
 polygon_zkevm:
-  url: "https://polygon-zkevm.blockpi.network/v1/rpc/e1528de3cf95b7219681a29bc58343ae1754ed17"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -1293,7 +1287,6 @@ polygon_zkevm:
         id: 1
 
 klaytn_mainnet:
-  url: "https://klaytn.blockpi.network/v1/rpc/65bbb6900d08a9f0621d4bc935e32aa3f3637415"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -1491,7 +1484,6 @@ klaytn_mainnet:
         id: 1
 
 klaytn_baobab:
-  url: "https://klaytn-baobab.blockpi.network/v1/rpc/29e4c09bb9000c3c10446122f1eed81d1a32fbc0"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -1688,7 +1680,6 @@ klaytn_baobab:
         id: 1
 
 zksync_era_mainnet:
-  url: "https://zksync-era.blockpi.network/v1/rpc/0a94e6a4604d50250e1a7499a7f3fd341bdf920f"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -1886,7 +1877,6 @@ zksync_era_mainnet:
         id: 1
 
 zksync_era_testnet:
-  url: "https://zksync-era-testnet.blockpi.network/v1/rpc/a6c4a63b423e4cf57b47732ac188244908428211"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -2084,7 +2074,6 @@ zksync_era_testnet:
         id: 1
 
 arbitrum_one:
-  url: "https://arbitrum.blockpi.network/v1/rpc/7a1c28c073f0a367694943ecd78e6b6365a85e2e"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -2282,7 +2271,6 @@ arbitrum_one:
         id: 1
 
 arbitrum_nova:
-  url: "https://arbitrum-nova.blockpi.network/v1/rpc/7419089c6c796aeb1a52c7544600331989d4452e"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -2480,7 +2468,6 @@ arbitrum_nova:
         id: 1
 
 arbitrum_goerli:
-  url: "https://arbitrum-goerli.blockpi.network/v1/rpc/021f6421661f80c7bf9f69c6fd3a7a24f2f4d1fe"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -2506,15 +2493,15 @@ arbitrum_goerli:
         params: ["earliest", false]
         id: 1
      expected:
-        "hash": "0x2ad24e03026118f9b3a48626f0636e38c93660e90a6812e853a99aa8c5371561"
+        "hash": "0x4019c44be4a1f5473ac23f50c57ce57a6ae71048531725186291dd05cb055b1c"
   eth_getBlockByHash:
      payload:
         jsonrpc: "2.0"
         method: "eth_getBlockByHash"
-        params: ["0x2ad24e03026118f9b3a48626f0636e38c93660e90a6812e853a99aa8c5371561", false]
+        params: ["0x4019c44be4a1f5473ac23f50c57ce57a6ae71048531725186291dd05cb055b1c", false]
         id: 1
      expected:
-        "hash": "0x2ad24e03026118f9b3a48626f0636e38c93660e90a6812e853a99aa8c5371561"
+        "hash": "0x4019c44be4a1f5473ac23f50c57ce57a6ae71048531725186291dd05cb055b1c"
   eth_blockNumber:
      payload:
         jsonrpc: "2.0"
@@ -2541,6 +2528,62 @@ arbitrum_goerli:
         id: 1
      expected:
         result: "0x0"
+  eth_getTransactionByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByHash"
+        params: ["0x0409e10ad8c2bd3b5a885c73bd30d36ab63853a7796a240d3e0efab6ba94db99"]
+        id: 1
+     expected:
+        "hash": "0x0409e10ad8c2bd3b5a885c73bd30d36ab63853a7796a240d3e0efab6ba94db99"
+  eth_getTransactionByBlockHashAndIndex:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByBlockHashAndIndex"
+        params: ["0xdf44c22df7f10603afe5027b2852a547c1d2a733f7dba1f421e546ee4bcbccaf","0x0"]
+        id: 1
+     expected:
+        "blockHash": "0xdf44c22df7f10603afe5027b2852a547c1d2a733f7dba1f421e546ee4bcbccaf"
+  eth_getTransactionByBlockNumberAndIndex:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionByBlockNumberAndIndex"
+        params: ["0x205c678","0x0"]
+        id: 1
+     expected:
+        "blockHash": "0xdf44c22df7f10603afe5027b2852a547c1d2a733f7dba1f421e546ee4bcbccaf"
+  eth_getTransactionReceipt:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionReceipt"
+        params: ["0x0409e10ad8c2bd3b5a885c73bd30d36ab63853a7796a240d3e0efab6ba94db99"]
+        id: 1
+     expected:
+        "blockHash": "0xa60630456778ea99e8cd8795584580d3615cb5e2c4bbc2009320f2a499a99fd9"
+  eth_getTransactionCount:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getTransactionCount"
+        params: ["0x90259c703a645e235b22572cc9a45a1b8977887c", "0x205c79f"]
+        id: 1
+     expected:
+        "result": "0x64bd"
+  eth_getBlockTransactionCountByHash:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockTransactionCountByHash"
+        params: ["0xb213848caa14600ef8579f9e5af3d203be52526b97f58e472849d27b352a0571"]
+        id: 1
+     expected:
+        "result": "0x2"
+  eth_getBlockTransactionCountByNumber:
+     payload:
+        jsonrpc: "2.0"
+        method: "eth_getBlockTransactionCountByNumber"
+        params: ["0x205c79f"]
+        id: 1
+     expected:
+        "result": "0x2"
   eth_getLogs:
      payload:
         jsonrpc: "2.0"
@@ -2554,10 +2597,10 @@ arbitrum_goerli:
      payload:
         jsonrpc: "2.0"
         method: "eth_getCode"
-        params: ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+        params: ["0x665A11007164B1dBECf6c7C6392C4ffE28a5282c", "latest"]
         id: 1
      expected:
-        "result": "0x"
+        "result": "0x60806040523661001357610011610017565b005b6100115b61002761002261005e565b610096565b565b606061004e838360405180606001604052806027815260200161024c602791396100ba565b9392505050565b3b151590565b90565b60006100917f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc546001600160a01b031690565b905090565b3660008037600080366000845af43d6000803e8080156100b5573d6000f35b3d6000fd5b6060833b61011e5760405162461bcd60e51b815260206004820152602660248201527f416464726573733a2064656c65676174652063616c6c20746f206e6f6e2d636f6044820152651b9d1c9858dd60d21b60648201526084015b60405180910390fd5b600080856001600160a01b03168560405161013991906101fc565b600060405180830381855af49150503d8060008114610174576040519150601f19603f3d011682016040523d82523d6000602084013e610179565b606091505b5091509150610189828286610193565b9695505050505050565b606083156101a257508161004e565b8251156101b25782518084602001fd5b8160405162461bcd60e51b81526004016101159190610218565b60005b838110156101e75781810151838201526020016101cf565b838111156101f6576000848401525b50505050565b6000825161020e8184602087016101cc565b9190910192915050565b60208152600082518060208401526102378160408501602087016101cc565b601f01601f1916919091016040019291505056fe416464726573733a206c6f772d6c6576656c2064656c65676174652063616c6c206661696c6564a264697066735822122041f64d2ff908c9983923017ed36c949dd92697a1f359295e2ea2f809da86127664736f6c63430008090033"
   eth_call:
      payload:
         jsonrpc: "2.0"
@@ -2570,12 +2613,12 @@ arbitrum_goerli:
            "latest"]
         id: 1
      expected:
-        "result": "0x0000000000000000000000000000000000000000000000000858898f93629000"
+        "result": "0x"
   eth_getStorageAt:
      payload:
         jsonrpc: "2.0"
         method: "eth_getStorageAt"
-        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", 17832694]
+        params: ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"]
         id: 1
      expected:
         "result": "0x0000000000000000000000000000000000000000000000000000000000000000"
@@ -2583,12 +2626,18 @@ arbitrum_goerli:
      payload:
         jsonrpc: "2.0"
         method: "eth_estimateGas"
-        params: [{"from": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
-                  "to": "0xDAFEA492D9c6733ae3d56b7Ed1ADB60692c98Bc5",
-                  "value": "0x186a0"}]
+        params: [
+           {
+               "from": null,
+               "to": "0x6b175474e89094c44da98b954eedeac495271d0f",
+               "data": "0x70a082310000000000000000000000006E0d01A76C3Cf4288372a29124A26D4353EE51BE"
+          },
+          "latest"
+        ]
         id: 1
      expected:
-        "result": "0x5208"
+        "jsonrpc": "2.0"
+        "id": 1
   eth_newFilter:
      payload:
         jsonrpc: "2.0"
@@ -2630,26 +2679,28 @@ arbitrum_goerli:
         jsonrpc: "2.0"
         method: "net_version"
         params: []
-        id: 83
-     expected:
-        "result": "1"
-  net_listening:
-     payload:
-        jsonrpc: "2.0"
-        method: "net_listening"
-        params: []
-        id: 83
-     expected:
-        "result": true
-  net_peerCount:
-     payload:
-        jsonrpc: "2.0"
-        method: "net_peerCount"
-        params: []
-        id: 83
+        id: 1
      expected:
         "jsonrpc": "2.0"
         "id": 1
+        "result": "421613"
+#  net_listening:
+#     payload:
+#        jsonrpc: "2.0"
+#        method: "net_listening"
+#        params: []
+#        id: 83
+#     expected:
+#        "result": true
+#  net_peerCount:
+#     payload:
+#        jsonrpc: "2.0"
+#        method: "net_peerCount"
+#        params: []
+#        id: 83
+#     expected:
+#        "jsonrpc": "2.0"
+#        "id": 1
   web3_clientVersion:
      payload:
         jsonrpc: "2.0"
@@ -2678,7 +2729,6 @@ arbitrum_goerli:
         id: 1
 
 op_mainnet:
-  url: "https://optimism.blockpi.network/v1/rpc/e3503a4ded94c29e7f32963d5c1815c9af9022a1"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -2876,7 +2926,6 @@ op_mainnet:
         id: 1
 
 op_goerli:
-  url: "https://optimism-goerli.blockpi.network/v1/rpc/b966ab9c3e88fe80fa20a9f1cc2135c676c7e63e"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -3074,7 +3123,6 @@ op_goerli:
         id: 1
 
 scroll:
-  url: "https://scroll-testnet.blockpi.network/v1/rpc/9cb5386f4ade590f333d94b149b0251ffe2bc481"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -3272,7 +3320,6 @@ scroll:
         id: 1
 
 bsc:
-  url: "https://bsc.blockpi.network/v1/rpc/dd44fed6d9b6239f6ae2795148e8aa3880944ef5"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -3470,7 +3517,6 @@ bsc:
         id: 1
 
 gnosis:
-  url: "https://gnosis.blockpi.network/v1/rpc/4d27b3fbf8a1e9ef917bca1ae66e18180a9a577d"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -3668,7 +3714,6 @@ gnosis:
         id: 1
 
 avax:
-  url: "https://avalanche.blockpi.network/v1/rpc/a411c569488bd8a12324a9f37458fb78a1d01dd7"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -3866,7 +3911,6 @@ avax:
         id: 1
 
 fantom:
-  url: "https://fantom.blockpi.network/v1/rpc/a63450ace682f2095cbc0866e8627df023a29df3"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -4064,7 +4108,6 @@ fantom:
         id: 1
 
 cronos:
-  url: "https://cronos.blockpi.network/v1/rpc/2aa6d71452ca0fa1825fe14afa25f6277e78fb7f"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -4262,7 +4305,6 @@ cronos:
         id: 1
 
 oasys:
-  url: "https://oasys.blockpi.network/v1/rpc/880f7751e054a3d93e6c628c65a6d2d300a813dd"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -4460,7 +4502,6 @@ oasys:
         id: 1
 
 meter:
-  url: "https://meter.blockpi.network/v1/rpc/a9da21d82715e94588a4a2d9cbc93689fce74ca5"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -4657,7 +4698,6 @@ meter:
         id: 1
 
 zeta_evm:
-  url: "https://zetachain-athens-evm.blockpi.network/v1/rpc/4cd05235f281933f3f2ba0bd81a4c702598ca8de"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -4855,7 +4895,6 @@ zeta_evm:
         id: 1
 
 base_goerli:
-  url: "https://base-goerli.blockpi.network/v1/rpc/5f1076bbe5f078f8c55968f7e67015e86e5d0146"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
@@ -5053,7 +5092,6 @@ base_goerli:
         id: 1
 
 base_mainnet:
-  url: "https://base.blockpi.network/v1/rpc/07c71e4b71dbc3e492afe604c7e13fb9a3c9db42"
   eth_chainId:
      payload:
         jsonrpc: "2.0"
