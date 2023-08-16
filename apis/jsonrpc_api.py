@@ -6,7 +6,7 @@ from common.wrapper import api_call
 
 
 class JsonrpcApi:
-    # 读取配置文件数
+
     header = yaml.safe_load(open(CONFIG_DIR, encoding='utf-8'))
     headers = header['request_headers']['headers']
     # 读取测试用例文件数据

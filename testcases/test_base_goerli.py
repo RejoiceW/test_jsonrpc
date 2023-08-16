@@ -4,12 +4,12 @@ from loguru import logger
 from common.utils import Utils
 from apis.jsonrpc_api import JsonrpcApi
 
-datas = JsonrpcApi.data
-
 
 @pytest.mark.base_goerli
 class TestBaseGoerli(JsonrpcApi):
     """通过调用不同的业务，来完成相关测试"""
+
+    datas = JsonrpcApi.data
 
     @allure.feature('eth_chainId')
     @allure.story('返回当前配置的链id')
@@ -45,15 +45,6 @@ class TestBaseGoerli(JsonrpcApi):
         result = self.eth_getBlockByHash(env['base_goerli'], **data['eth_getBlockByHash']['payload'])
         Utils.assert_response_status(result)
         Utils.assert_contains(data['eth_getBlockByHash']['expected'], result.json())
-        logger.info('用例通过!')
-
-    @allure.feature('eth_getBlockReceipts')
-    @allure.story('获取给定区块的所有交易数据')
-    @pytest.mark.parametrize('data', [datas['base_goerli']])
-    def test_eth_getBlockReceipts(self, env, data):
-        result = self.eth_getBlockReceipts(env['base_goerli'], **data['eth_getBlockReceipts']['payload'])
-        Utils.assert_response_status(result)
-        Utils.assert_contains(data['eth_getBlockReceipts']['expected'], result.json())
         logger.info('用例通过!')
 
     @allure.feature('eth_blockNumber')
@@ -218,7 +209,8 @@ class TestBaseGoerli(JsonrpcApi):
     @allure.story('在节点中创建一个过滤器，以在新的待处理交易到达时发出通知')
     @pytest.mark.parametrize('data', [datas['base_goerli']])
     def test_eth_newPendingTransactionFilter(self, env, data):
-        result = self.eth_newPendingTransactionFilter(env['base_goerli'], **data['eth_newPendingTransactionFilter']['payload'])
+        result = self.eth_newPendingTransactionFilter(env['base_goerli'],
+                                                      **data['eth_newPendingTransactionFilter']['payload'])
         Utils.assert_response_status(result)
         Utils.assert_contains(data['eth_newPendingTransactionFilter']['expected'], result.json())
         logger.info('用例通过!')

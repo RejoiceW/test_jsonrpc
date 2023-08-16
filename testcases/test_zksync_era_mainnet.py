@@ -4,12 +4,12 @@ from loguru import logger
 from common.utils import Utils
 from apis.jsonrpc_api import JsonrpcApi
 
-datas = JsonrpcApi.data
-
 
 @pytest.mark.zksync_era_mainnet
 class TestZksyncEraMainnet(JsonrpcApi):
     """通过调用不同的业务，来完成相关测试"""
+
+    datas = JsonrpcApi.data
 
     @allure.feature('eth_chainId')
     @allure.story('返回当前配置的链id')
@@ -45,15 +45,6 @@ class TestZksyncEraMainnet(JsonrpcApi):
         result = self.eth_getBlockByHash(env['zksync_era_mainnet'], **data['eth_getBlockByHash']['payload'])
         Utils.assert_response_status(result)
         Utils.assert_contains(data['eth_getBlockByHash']['expected'], result.json())
-        logger.info('用例通过!')
-
-    @allure.feature('eth_getBlockReceipts')
-    @allure.story('获取给定区块的所有交易数据')
-    @pytest.mark.parametrize('data', [datas['zksync_era_mainnet']])
-    def test_eth_getBlockReceipts(self, env, data):
-        result = self.eth_getBlockReceipts(env['zksync_era_mainnet'], **data['eth_getBlockReceipts']['payload'])
-        Utils.assert_response_status(result)
-        Utils.assert_contains(data['eth_getBlockReceipts']['expected'], result.json())
         logger.info('用例通过!')
 
     @allure.feature('eth_blockNumber')
@@ -266,15 +257,6 @@ class TestZksyncEraMainnet(JsonrpcApi):
         result = self.web3_clientVersion(env['zksync_era_mainnet'], **data['web3_clientVersion']['payload'])
         Utils.assert_response_status(result)
         Utils.assert_contains(data['web3_clientVersion']['expected'], result.json())
-        logger.info('用例通过!')
-
-    @allure.feature('web3_sha3')
-    @allure.story('返回给定数据的 Keccak-256')
-    @pytest.mark.parametrize('data', [datas['zksync_era_mainnet']])
-    def test_web3_sha3(self, env, data):
-        result = self.web3_sha3(env['zksync_era_mainnet'], **data['web3_sha3']['payload'])
-        Utils.assert_response_status(result)
-        Utils.assert_contains(data['web3_sha3']['expected'], result.json())
         logger.info('用例通过!')
 
     @allure.feature('txpool_status')

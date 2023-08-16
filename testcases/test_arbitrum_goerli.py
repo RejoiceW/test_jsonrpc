@@ -4,12 +4,12 @@ from loguru import logger
 from common.utils import Utils
 from apis.jsonrpc_api import JsonrpcApi
 
-datas = JsonrpcApi.data
-
 
 @pytest.mark.arbitrum_goerli
 class TestArbitrumGoerli(JsonrpcApi):
     """通过调用不同的业务，来完成相关测试"""
+
+    datas = JsonrpcApi.data
 
     @allure.feature('eth_chainId')
     @allure.story('返回当前配置的链id')

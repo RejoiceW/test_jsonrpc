@@ -16,22 +16,23 @@ def pytest_addoption(parser):
     )
 
 
+# 获取命令行参数
 @pytest.fixture(scope="session", autouse=True)
 def get_env(pytestconfig):
-    """获取命令行参数"""
     return pytestconfig.getoption("--env")
 
 
+# 根据命令行 --env 参数读取配置文件下不同环境数据
 @pytest.fixture(scope="session")
 def env(get_env):
     env = ''
-    # 读取配置文件数据
-    data = yaml.safe_load(open(CONFIG_DIR, encoding='utf-8'))
+    data = yaml.safe_load(open(CONFIG_DIR, encoding='utf-8'))  # 读取配置文件数据
     if get_env == 'alphanet':
         env = data['url']['alphanet']
         logger.info(f'测试环境为：alphanet')
     elif get_env == 'testnet':
         env = data['url']['testnet']
+        logger.info(f'测试环境为：testnet')
     return env
 
 
