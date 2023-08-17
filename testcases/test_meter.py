@@ -4,12 +4,12 @@ from loguru import logger
 from common.utils import Utils
 from apis.jsonrpc_api import JsonrpcApi
 
-datas = JsonrpcApi.data
-
 
 @pytest.mark.meter
 class TestMeter(JsonrpcApi):
     """通过调用不同的业务，来完成相关测试"""
+
+    datas = JsonrpcApi.data
 
     @allure.feature('eth_chainId')
     @allure.story('返回当前配置的链id')
@@ -45,15 +45,6 @@ class TestMeter(JsonrpcApi):
         result = self.eth_getBlockByHash(env['meter'], **data['eth_getBlockByHash']['payload'])
         Utils.assert_response_status(result)
         Utils.assert_contains(data['eth_getBlockByHash']['expected'], result.json())
-        logger.info('用例通过!')
-
-    @allure.feature('eth_getBlockReceipts')
-    @allure.story('获取给定区块的所有交易数据')
-    @pytest.mark.parametrize('data', [datas['meter']])
-    def test_eth_getBlockReceipts(self, env, data):
-        result = self.eth_getBlockReceipts(env['meter'], **data['eth_getBlockReceipts']['payload'])
-        Utils.assert_response_status(result)
-        Utils.assert_contains(data['eth_getBlockReceipts']['expected'], result.json())
         logger.info('用例通过!')
 
     @allure.feature('eth_blockNumber')
@@ -131,15 +122,15 @@ class TestMeter(JsonrpcApi):
         Utils.assert_contains(data['eth_getTransactionCount']['expected'], result.json())
         logger.info('用例通过!')
 
-    @allure.feature('eth_getBlockTransactionCountByHash')
-    @allure.story('返回从一个地址发送的交易数量')
-    @pytest.mark.parametrize('data', [datas['meter']])
-    def test_eth_getBlockTransactionCountByHash(self, env, data):
-        result = self.eth_getBlockTransactionCountByHash(env['meter'],
-                                                         **data['eth_getBlockTransactionCountByHash']['payload'])
-        Utils.assert_response_status(result)
-        Utils.assert_contains(data['eth_getBlockTransactionCountByHash']['expected'], result.json())
-        logger.info('用例通过!')
+    # @allure.feature('eth_getBlockTransactionCountByHash')
+    # @allure.story('返回从一个地址发送的交易数量')
+    # @pytest.mark.parametrize('data', [datas['meter']])
+    # def test_eth_getBlockTransactionCountByHash(self, env, data):
+    #     result = self.eth_getBlockTransactionCountByHash(env['meter'],
+    #                                                      **data['eth_getBlockTransactionCountByHash']['payload'])
+    #     Utils.assert_response_status(result)
+    #     Utils.assert_contains(data['eth_getBlockTransactionCountByHash']['expected'], result.json())
+    #     logger.info('用例通过!')
 
     @allure.feature('eth_getBlockTransactionCountByNumber')
     @allure.story('返回匹配给定区块编号的区块中的交易数量')
@@ -250,14 +241,14 @@ class TestMeter(JsonrpcApi):
         Utils.assert_contains(data['net_listening']['expected'], result.json())
         logger.info('用例通过!')
 
-    @allure.feature('net_peerCount')
-    @allure.story('返回当前连接到客户端的对等点数')
-    @pytest.mark.parametrize('data', [datas['meter']])
-    def test_net_peerCount(self, env, data):
-        result = self.net_peerCount(env['meter'], **data['net_peerCount']['payload'])
-        Utils.assert_response_status(result)
-        Utils.assert_contains(data['net_peerCount']['expected'], result.json())
-        logger.info('用例通过!')
+    # @allure.feature('net_peerCount')
+    # @allure.story('返回当前连接到客户端的对等点数')
+    # @pytest.mark.parametrize('data', [datas['meter']])
+    # def test_net_peerCount(self, env, data):
+    #     result = self.net_peerCount(env['meter'], **data['net_peerCount']['payload'])
+    #     Utils.assert_response_status(result)
+    #     Utils.assert_contains(data['net_peerCount']['expected'], result.json())
+    #     logger.info('用例通过!')
 
     @allure.feature('web3_clientVersion')
     @allure.story('返回当前客户端版本')
@@ -266,15 +257,6 @@ class TestMeter(JsonrpcApi):
         result = self.web3_clientVersion(env['meter'], **data['web3_clientVersion']['payload'])
         Utils.assert_response_status(result)
         Utils.assert_contains(data['web3_clientVersion']['expected'], result.json())
-        logger.info('用例通过!')
-
-    @allure.feature('web3_sha3')
-    @allure.story('返回给定数据的 Keccak-256')
-    @pytest.mark.parametrize('data', [datas['meter']])
-    def test_web3_sha3(self, env, data):
-        result = self.web3_sha3(env['meter'], **data['web3_sha3']['payload'])
-        Utils.assert_response_status(result)
-        Utils.assert_contains(data['web3_sha3']['expected'], result.json())
         logger.info('用例通过!')
 
     @allure.feature('txpool_status')

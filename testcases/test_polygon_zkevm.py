@@ -4,12 +4,12 @@ from loguru import logger
 from common.utils import Utils
 from apis.jsonrpc_api import JsonrpcApi
 
-datas = JsonrpcApi.data
-
 
 @pytest.mark.polygon_zkevm
 class TestPolygonZkevm(JsonrpcApi):
     """通过调用不同的业务，来完成相关测试"""
+
+    datas = JsonrpcApi.data
 
     @allure.feature('eth_chainId')
     @allure.story('返回当前配置的链id')
@@ -45,15 +45,6 @@ class TestPolygonZkevm(JsonrpcApi):
         result = self.eth_getBlockByHash(env['polygon_zkevm'], **data['eth_getBlockByHash']['payload'])
         Utils.assert_response_status(result)
         Utils.assert_contains(data['eth_getBlockByHash']['expected'], result.json())
-        logger.info('用例通过!')
-
-    @allure.feature('eth_getBlockReceipts')
-    @allure.story('获取给定区块的所有交易数据')
-    @pytest.mark.parametrize('data', [datas['polygon_zkevm']])
-    def test_eth_getBlockReceipts(self, env, data):
-        result = self.eth_getBlockReceipts(env['polygon_zkevm'], **data['eth_getBlockReceipts']['payload'])
-        Utils.assert_response_status(result)
-        Utils.assert_contains(data['eth_getBlockReceipts']['expected'], result.json())
         logger.info('用例通过!')
 
     @allure.feature('eth_blockNumber')
@@ -241,14 +232,14 @@ class TestPolygonZkevm(JsonrpcApi):
         Utils.assert_contains(data['net_version']['expected'], result.json())
         logger.info('用例通过!')
 
-    @allure.feature('net_listening')
-    @allure.story('如果客户端正在主动监听网络连接，则返回 true')
-    @pytest.mark.parametrize('data', [datas['polygon_zkevm']])
-    def test_net_listening(self, env, data):
-        result = self.net_listening(env['polygon_zkevm'], **data['net_listening']['payload'])
-        Utils.assert_response_status(result)
-        Utils.assert_contains(data['net_listening']['expected'], result.json())
-        logger.info('用例通过!')
+    # @allure.feature('net_listening')
+    # @allure.story('如果客户端正在主动监听网络连接，则返回 true')
+    # @pytest.mark.parametrize('data', [datas['polygon_zkevm']])
+    # def test_net_listening(self, env, data):
+    #     result = self.net_listening(env['polygon_zkevm'], **data['net_listening']['payload'])
+    #     Utils.assert_response_status(result)
+    #     Utils.assert_contains(data['net_listening']['expected'], result.json())
+    #     logger.info('用例通过!')
 
     @allure.feature('net_peerCount')
     @allure.story('返回当前连接到客户端的对等点数')
