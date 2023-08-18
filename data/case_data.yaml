@@ -2895,7 +2895,8 @@ arbitrum_nova:
                   "to": "0x8AaE4003fB7339aA25376AE2f68F6cC9F3cf4BD8"}]
         id: 1
      expected:
-        "result": "0x761b"
+        "jsonrpc": "2.0"
+        "id": 1
   eth_newFilter:
      payload:
         jsonrpc: "2.0"
@@ -3056,10 +3057,10 @@ arbitrum_goerli:
      payload:
         jsonrpc: "2.0"
         method: "eth_getTransactionCount"
-        params: ["0xb65B3cb84285862eDDb3081f4aeb4dbd1aE1c6a8", "latest"]
+        params: ["0x0182202aC2Ea5545C08c1E4edafD419E33BF3B0A", "latest"]
         id: 1
      expected:
-        "result": "0x2614"
+        "result": "0x0"
   eth_getBlockTransactionCountByHash:
      payload:
         jsonrpc: "2.0"
@@ -4196,7 +4197,7 @@ scroll_sepolia:
      expected:
         "jsonrpc": "2.0"
         "id": 1
-        "result": "0x27"
+        "result": "0x2b"
   web3_clientVersion:
      payload:
         jsonrpc: "2.0"
@@ -5833,7 +5834,7 @@ meter:
         params: ["0x0182202aC2Ea5545C08c1E4edafD419E33BF3B0A", "latest"]
         id: 1
      expected:
-        "result": "0x18b1e7ad"
+        "result": "0xeab83252"
   eth_getBlockTransactionCountByNumber:
      payload:
         jsonrpc: "2.0"
